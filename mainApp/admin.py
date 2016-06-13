@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from mainApp.models import InfoPage, Item
+from mainApp.models import InfoPage, Item, SiteSetting
 from ckeditor.widgets import CKEditorWidget
 
 
@@ -11,12 +11,12 @@ class ItemAdminForm(forms.ModelForm):
 
     class Meta:
         model = Item
-        fields = ('page', 'headline', 'element_id', 'order', 'text')
+        fields = ('page', 'headline', 'order', 'text')
 
 
 class ItemAdmin(admin.ModelAdmin):
 
-    list_display = ('page', 'order', 'headline', 'element_id')
+    list_display = ('page', 'order', 'headline')
     search_fields = ('headline', 'element_id')
     ordering = ('page', 'order')
     form = ItemAdminForm
@@ -24,3 +24,4 @@ class ItemAdmin(admin.ModelAdmin):
 
 admin.site.register(Item, ItemAdmin)
 admin.site.register(InfoPage)
+admin.site.register(SiteSetting)

@@ -45,6 +45,13 @@
 
         {% block additions_block %}{% endblock %}
 
+        {% block deadlines_block %}
+            {% with 'deadlines_block' as expectedVarName %}
+                {{ block.super }}
+            {% endwith %}
+        {% endblock %}
+
     </div>
 
 {% endblock %}
+

@@ -9,13 +9,13 @@
 
     <!-- Change this -->
     <meta name="description"
-          content="First International Conference on Advances in Bio-Materials and Their Applications 2017">
+          content={{ site_settings.full_name }}>
     <meta name="keywords" content="bio-materials, biomaterials, conference, applications, 2017">
     <meta name="author" content="ASRANet">
     <meta name="google-site-verification" content="GhSMT2YCWklPbhw59aNgGcd3TYtqc8jNJ9k4uV5Ixng"/>
-    <link rel="icon" href="{% static "Images/favicon.png" %}">
+    <link rel="icon" href="{% static "Images/favicon.jpg" %}">
 
-    <title>BIOMAT 2017 - {% block title %}{% endblock %}</title>
+    <title>{{ site_settings.site_name }} - {% block title %}{% endblock %}</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -57,19 +57,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{% url 'index' %}">BIOMAT 2017</a>
+                    <a class="navbar-brand" href="{% url 'index' %}">{{ site_settings.site_name }}</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
 
                         <li><a href="{% url 'index' %}">Home</a></li>
-                        <li><a href="/static/BioMat%202017%20Flyer.pdf" target="_blank">Programme</a></li>
+                        <li><a href="/static/AdWind%20Flyer.pdf" target="_blank">Flyer</a></li>
                         <li><a href="{% url 'register' %}">Register</a></li>
                         <li><a href="{% url 'uploadAbstract' %}">Upload Abstract</a></li>
                         <li><a href="{% url 'authorInstructions' %}">Author Instructions</a></li>
                         <li><a href="{% url 'travel' %}">Travel</a></li>
-                        <li><a href="{% url 'accomodation' %}">Accommodation</a></li>
-                        <li><a href="{% url 'venue' %}">Venue</a></li>
+                        <!--li><a href="{% url 'accomodation' %}">Accommodation</a></li>
+                        <li><a href="{% url 'venue' %}">Venue</a></li-->
                         <li><a href="{% url 'contactus' %}">Contact Us</a></li>
                     </ul>
                 </div>
@@ -107,7 +107,7 @@
         </div>
 
         <div class="row footer-title">
-            <h4>First International Conference on Advances in Bio-Materials and Their Applications</h4>
+            <h4>{{ site_settings.full_name }}</h4>
         </div>
 
     </div>

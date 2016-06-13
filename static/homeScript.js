@@ -5,12 +5,11 @@ window.onload = function(){
 //Check if date of key deadlines has passed and update HTML and progress bar as required
 function checkKeyDeadlines() {
 
-    //If changing dates also change in HTML
-    var keyDeadlines = [{event: "Deadline for abstracts", textDate: "16 Jan 2017"},
-        {event: "Notification of acceptance", textDate: "15 Feb 2017"},
-        {event: "Submission of full papers", textDate: "30 Jun 2017"},
-        {event: "Registration closes", textDate: "1 Aug 2017"}];
-    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var keyDeadlines = [{event: "Deadline for abstracts", textDate: $("#abstractDeadline").text()},
+        {event: "Notification of acceptance", textDate: $("#acceptanceDeadline").text()},
+        {event: "Submission of full papers", textDate: $("#papersDeadline").text()},
+        {event: "Registration closes", textDate: $("#registrationDeadline").text()}];
+    var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun", "Jul", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
     var currentDate = new Date();
     var day = currentDate.getDate();
     var month = currentDate.getMonth();
@@ -22,7 +21,6 @@ function checkKeyDeadlines() {
     for (var index =  0; index < keyDeadlines.length; index++) {
 
         lastDeadlineChanged = false;
-
         var newDate = keyDeadlines[index].textDate.split(" ");
 
         if (newDate[2] < year) {
@@ -31,13 +29,13 @@ function checkKeyDeadlines() {
         }
 
         else if (newDate[2] == year) {
-            if (months.indexOf(newDate[1]) < month) {
+            if (months.indexOf(newDate[0]) < month) {
                 lastDeadline = index;
                 lastDeadlineChanged = true;
             }
 
-            else if (months.indexOf(newDate[1]) == month) {
-                if (newDate[0] < day) {
+            else if (months.indexOf(newDate[0]) == month) {
+                if (newDate[1] < day) {
                     lastDeadline = index;
                     lastDeadlineChanged = true;
                 }

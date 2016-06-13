@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
-from BIOMAT.email_functionality import email_admin, email_client
+from adWind.email_functionality import email_admin, email_client
+from mainApp.models import SiteSetting
 
 try:
     from cStringIO import StringIO
@@ -19,21 +20,23 @@ class User(models.Model):
     country = models.CharField(max_length=60)
     telephone = models.CharField(max_length=15)
     email = models.EmailField(max_length=60, unique=True)
-    fee_normal = models.BooleanField(default=False)
-    fee_student = models.BooleanField(default=False)
-    fee_one_day = models.BooleanField(default=False)
+    registration_fee = models.CharField(max_length=30)
+    discount_code_if_applicable = models.CharField(max_length=10)
 
     def save(self, *args, **kwargs):
         sorted_self = [["Salutation", self.salutation], ["First name", self.first_name], ["Last Name", self.last_name],
                        ["Email", self.email], ["Telephone", self.telephone], ["Address", self.address],
                        ["City", self.city], ["Country", self.country], ["Postcode", self.postcode],
-                       ["Organisation", self.organisation], ["Paying Normal Fee", str(self.fee_normal)],
-                       ["Paying Student Fee", str(self.fee_student)], ["One Day Pass Fee", str(self.fee_one_day)],
-                       ]
+                       ["Organisation", self.organisation], ["Registration Fee", self.registration_fee],
+                       ["Discount Code", self.discount_code_if_applicable]]
 
-        email_client(self, "BIOMAT 2016 Conference Registration", "You are officially registered for BIOMAT 2016")
-        email_admin(self, "New BIOMAT 2016 Registrant", "Please find enclosed the details for the new BIOMAT "
-                                                      "2016 registrant.", sorted_self)
+        site_settings = SiteSetting.objects.all().first()
+
+        email_client(self, site_settings.site_name + "Conference Registration", "You are officially registered for " +
+                     site_settings.site_name)
+        email_admin(self, "New " + site_settings.site_name + " Registrant",
+                    "Please find enclosed the details for the new " + site_settings.site_name + " registrant.",
+                    sorted_self)
 
         super(User, self).save(*args, **kwargs)
 
