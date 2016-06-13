@@ -20,13 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'b5-j0(3bn%a_(=kz!=ze$@=)z3hfj=-*_i2m7__qqsqs(*p7d2'
 SECRET_KEY = os.environ['adwind_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', ]
+ALLOWED_HOSTS = ['localhost', 'adwind2017.com', 'www.adwind2017.com']
 
 # Application definition
 
