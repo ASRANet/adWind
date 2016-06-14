@@ -45,13 +45,13 @@
             Key Deadlines
         </h2>
 
-        <div class='progress'>
+        <div class='progress hidden-xs hidden-sm'>
             <div id='datesProgress' class='progress-bar progress-bar-striped active'
                  role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='width: 0;'>
             </div>
         </div>
         <!-- If changing dates also change keyDeadlines variable in script.js-->
-        <table class='table' style='text-align: center' id='keyDeadlinesTable'>
+        <table class='table hidden-xs hidden-sm' style='text-align: center' id='keyDeadlinesTable'>
             <tr>
                 <td><p style="text-align: justify">Deadline for abstracts<br>
                     <span id="abstractDeadline">{{ site_settings.abstract_deadline }}</span></p></td>
@@ -67,7 +67,28 @@
 
             </tr>
         </table>
+
+        <table class="table visible-xs visible-sm" style='text-align: center'>
+
+            <tr>
+                <td>Deadline for abstracts</td>
+                <td>{{ site_settings.abstract_deadline }}</td>
+            </tr>
+            <tr>
+                <td>Notification of Acceptance</td>
+                <td>{{ site_settings.acceptance_deadline }}</td>
+            </tr>
+            <tr>
+                <td>Submission of full papers</td>
+                <td>{{ site_settings.papers_deadline }}</td>
+            </tr>
+            <tr>
+                <td>Registration Closes</td>
+                <td>{{ site_settings.registration_deadline }}</td>
+            </tr>
+        </table>
     </div>
+
     <hr class='featurette-divider'>
 
 {% endblock %}
