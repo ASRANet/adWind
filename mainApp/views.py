@@ -8,7 +8,8 @@ def index(request):
     story_list = Item.objects.filter(page__name="index").order_by('order')
     site_settings = SiteSetting.objects.all().first()
 
-    return render(request, 'index.html', {"story_list": story_list, "title": "Home", "site_settings": site_settings})
+    return render(request, 'index.html', {"story_list": story_list, "title": "Home", "site_settings": site_settings,
+                                          "page": "index"})
 
 
 def index2(request):

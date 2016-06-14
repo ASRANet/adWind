@@ -20,6 +20,11 @@
             {% for story in story_list %}
                 <li><a href="#{{ story.id }}">{{ story.headline }}</a></li>
             {% endfor %}
+
+            {% if page %}
+                <li><a href="#keyDeadlines">Key Deadlines</a></li>
+            {% endif %}
+
         </ul>
     </div>
 
