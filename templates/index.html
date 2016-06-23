@@ -28,12 +28,16 @@
                     <div class="carousel-caption">
                         <h1 class="hidden-xs">{{ site_settings.site_name }}</h1>
                         <p>{{ site_settings.full_name }}</p>
-                        <p>In collaboration with National Institute of Wind Energy (NIWE)</p>
                         <a href="{% url 'register' %}" class="btn btn-lg btn-default hidden-xs">Register Now</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="NIWE">
+        <h4>In collaboration with National Institute of Wind Energy (NIWE)</h4>
+        <img src="{% static 'Images/NIWElogo.jpg' %}" width="128">
     </div>
 
 {% endblock %}

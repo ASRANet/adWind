@@ -12,6 +12,9 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: larger;
 }
+.NIWE {
+  text-align: center;
+}
 .carousel-caption {
   color: white;
   text-shadow: 2px 2px #5a5a5a;
