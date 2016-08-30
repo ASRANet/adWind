@@ -27,7 +27,7 @@ def email_client(self, subject, text):
     msg.attach_file('static/Images/asranetLogo.jpg')
     msg.mixed_subtype = 'related'
 
-    f = 'asranetLogo.jpg'
+    f = 'static/Images/asranetLogo.jpg'
     fp = open(os.path.join(os.path.dirname(__file__), f), 'rb')
     msg_img = MIMEImage(fp.read())
     fp.close()
